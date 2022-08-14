@@ -30,5 +30,10 @@ LinkedListUtility.InsertFirst(14);
 LinkedListUtility.InsertFirst(15);
 
 LinkedListUtility.InsertFirst(16);
+LinkedListUtility.InsertFirst(17);
+LinkedListUtility.InsertFirst(18);
+
+LinkedListUtility.DeleteFirst();
+LinkedListUtility.DeleteFirst();
 
 Console.WriteLine("final execution");

@@ -19,9 +19,21 @@ namespace DSA_algorithm.LinkedList
         {
             Node node = new Node();
             node.Data = data;
-            node.Next=this.Head;
-            this.Head=node;
+            node.Next = this.Head;
+            this.Head = node;
 
+        }
+
+        public Node DeleteFirst()
+        {
+            if (Head.Next != null)
+            {
+                Node temp = Head.Next;
+                Head = temp;
+                return temp;
+
+            }
+            return new Node();// here I need to send some message , that there is not element in the link list
         }
 
 
