@@ -38,4 +38,10 @@ LinkedListUtility.DeleteFirst();
 
 
 LinkedListUtility.DisplayData();
+
+LinkedListUtility.InsertLast(786);
+LinkedListUtility.InsertLast(147);
+
+
+LinkedListUtility.DisplayData();
 Console.WriteLine("final execution");

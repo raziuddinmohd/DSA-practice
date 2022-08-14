@@ -26,7 +26,7 @@ namespace DSA_algorithm.LinkedList
 
         public Node DeleteFirst()
         {
-            if (Head.Next != null)
+            if (Head?.Next != null)
             {
                 Node temp = Head.Next;
                 Head = temp;
@@ -39,12 +39,25 @@ namespace DSA_algorithm.LinkedList
         public void DisplayData()
         {
             Console.WriteLine("printing the list items");
-            Node currentNode = this.Head;
-            while (currentNode.Next != null)
+            Node currentNode = this.Head!;
+            //here if we check the condition currentNode.Next!=null then the last element would be missed.
+            while (currentNode!= null)
             {
                 currentNode.Display();
                 currentNode = currentNode.Next;
             }
+        }
+        public void InsertLast(int data)
+        {
+            Node currentNode = this.Head;
+            while(currentNode?.Next != null)
+            {
+                currentNode = currentNode.Next;
+            }
+            Node newNode = new Node();
+            newNode.Data = data;
+            newNode.Next = null;
+            currentNode.Next = newNode;
         }
 
     }
