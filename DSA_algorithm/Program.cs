@@ -45,3 +45,10 @@ LinkedListUtility.InsertLast(147);
 
 LinkedListUtility.DisplayData();
 Console.WriteLine("final execution");
+
+LinkedListUtility.DeleteLast();
+
+LinkedListUtility.DeleteLast();
+
+LinkedListUtility.DisplayData();
+Console.WriteLine("After last deletion");

@@ -41,7 +41,7 @@ namespace DSA_algorithm.LinkedList
             Console.WriteLine("printing the list items");
             Node currentNode = this.Head!;
             //here if we check the condition currentNode.Next!=null then the last element would be missed.
-            while (currentNode!= null)
+            while (currentNode != null)
             {
                 currentNode.Display();
                 currentNode = currentNode.Next;
@@ -50,7 +50,7 @@ namespace DSA_algorithm.LinkedList
         public void InsertLast(int data)
         {
             Node currentNode = this.Head;
-            while(currentNode?.Next != null)
+            while (currentNode?.Next != null)
             {
                 currentNode = currentNode.Next;
             }
@@ -58,6 +58,16 @@ namespace DSA_algorithm.LinkedList
             newNode.Data = data;
             newNode.Next = null;
             currentNode.Next = newNode;
+        }
+
+        public void DeleteLast()
+        {
+            Node currentNode = this.Head;
+            while (currentNode?.Next?.Next != null)
+            {
+                currentNode = currentNode.Next;
+            }
+            currentNode.Next = null;
         }
 
     }
