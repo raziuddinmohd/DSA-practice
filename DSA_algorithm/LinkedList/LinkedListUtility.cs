@@ -36,6 +36,16 @@ namespace DSA_algorithm.LinkedList
             return new Node();// here I need to send some message , that there is not element in the link list
         }
 
+        public void DisplayData()
+        {
+            Console.WriteLine("printing the list items");
+            Node currentNode = this.Head;
+            while (currentNode.Next != null)
+            {
+                currentNode.Display();
+                currentNode = currentNode.Next;
+            }
+        }
 
     }
 }

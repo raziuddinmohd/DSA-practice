@@ -36,4 +36,6 @@ LinkedListUtility.InsertFirst(18);
 LinkedListUtility.DeleteFirst();
 LinkedListUtility.DeleteFirst();
 
+
+LinkedListUtility.DisplayData();
 Console.WriteLine("final execution");
