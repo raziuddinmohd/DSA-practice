@@ -1,0 +1,5 @@
+﻿using DSA_algorithm.DSA_practice_by_love_babbar.Arrays;
+
+int[] arr = { 5, 2, 8, 9 };
+int[] result = ReverseOfAnArray.reverseOfAnArray(arr);
+===========================================================
