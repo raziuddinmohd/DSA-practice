@@ -146,5 +146,86 @@ namespace DSA_algorithm.MethodCalls.DSA_practice_by_love_babbar.Arrays.Patterns
                 Console.WriteLine();
             }
         }
+        //A
+        //B C
+        //C D E
+        //D E F G
+        //E F G H I
+        //F G H I J K
+        //G H I J K L M
+        //H I J K L M N O
+        //I J K L M N O P Q
+        public static void pattern7(int numberOfRows)
+        {
+            char a = 'A';
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write((char)(a + i + j - 2) + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        //10
+        //10 9
+        //10 9 8
+        //10 9 8 7
+        //10 9 8 7 6
+        public static void pattern8(int numberOfRows)
+        {
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+                int value = numberOfRows;
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(value + " ");
+                    value--;
+                }
+                Console.WriteLine();
+            }
+        }
+        //4
+        //3 4
+        //2 3 4
+        //1 2 3 4
+        public static void pattern9(int numberOfRows)
+        {
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(numberOfRows - i + j + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        //   *
+        //  **
+        // ***
+        //****
+
+        public static void pattern10(int numberOfRows)
+        {
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+
+                for (int j = 1; j <= numberOfRows; j++)
+                {
+                    if (j >= (numberOfRows - i + 1))
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write(" ");
+                    }
+
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }

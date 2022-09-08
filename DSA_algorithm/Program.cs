@@ -15,3 +15,8 @@ Patterns.pattern4(7);
 Patterns.patter5(5);
 Patterns.pattern6(9);
 
+Patterns.pattern7(9);
+Patterns.pattern8(10);
+Patterns.pattern9(4);
+;
+Patterns.pattern10(4);
