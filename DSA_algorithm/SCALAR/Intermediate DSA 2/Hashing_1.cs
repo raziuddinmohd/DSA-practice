@@ -87,31 +87,32 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             return result;
         }
 
+        #region get frequency of B element in As array
         /*
-         Given an array A. You have some integers given in the array B.
-         For the i-th number, find the frequency of B[i] in the array A and return a list containing all the frequencies.
+        Given an array A. You have some integers given in the array B.
+        For the i-th number, find the frequency of B[i] in the array A and return a list containing all the frequencies.
 
-        Problem Constraints
-        1 <= |A| <= 105
-        1 <= |B| <= 105
-        1 <= A[i] <= 105
-        1 <= B[i] <= 105
+       Problem Constraints
+       1 <= |A| <= 105
+       1 <= |B| <= 105
+       1 <= A[i] <= 105
+       1 <= B[i] <= 105
 
-        Example Input
-        Input 1:
-        A = [1, 2, 1, 1]
-        B = [1, 2]
-        Input 2:
-        A = [2, 5, 9, 2, 8]
-        B = [3, 2]
-        
-        
-        Example Output
-        Output 1:
-        [3, 1]
-        Output 2:
-        [0, 2]
-         */
+       Example Input
+       Input 1:
+       A = [1, 2, 1, 1]
+       B = [1, 2]
+       Input 2:
+       A = [2, 5, 9, 2, 8]
+       B = [3, 2]
+
+
+       Example Output
+       Output 1:
+       [3, 1]
+       Output 2:
+       [0, 2]
+        */
         public static List<int> getFrequencyOfB_ArrayElementsInA_Array(List<int> A, List<int> B)
         {
             Dictionary<int, int> frequencyHashMap = new Dictionary<int, int>();
@@ -149,5 +150,61 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
         //List<int> B = new List<int> { 2, 1, 7, 5, 8 };
         //var result= DSA_algorithm.SCALAR.Intermediate_DSA_2.Hashing_1.getFrequencyOfB_ArrayElementsInA_Array(A, B);
           */
+        #endregion
+
+        #region return  if array contains a subarray with sum equal to 0 else return 0
+        /*
+         * https://www.scaler.com/academy/mentee-dashboard/class/45629/assignment/problems/4202?navref=cl_tt_nv
+         Given an array of integers A, find and return whether the given array contains a non-empty subarray with a sum equal to 0.
+
+         If the given array contains a sub-array with sum zero return 1, else return 0.
+
+        Input Format
+        The only argument given is the integer array A.
+
+
+
+        Output Format
+        Return whether the given array contains a subarray with a sum equal to 0
+        Example Input
+        Input 1:
+        
+         A = [1, 2, 3, 4, 5]
+        Input 2:
+        
+         A = [4, -1, 1]
+        
+        
+        Example Output
+        Output 1:
+        
+         0
+        Output 2:
+        
+         1
+         */
+        public static int checkIfSubArrayWithSumZeroExist(List<int> A)
+        {
+            int[] prefixSum = new int[A.Count];
+            //step 1: create a prefix sum array 
+            prefixSum[0] = A[0];
+            for (int i = 1; i < A.Count; i++)
+            {
+                prefixSum[i] = prefixSum[i - 1] + A[i];
+            }
+            //step 2: if the prefix array is having any 0 then we need to return 1 
+            Dictionary<int, int> sumWithZero = new Dictionary<int, int>();
+            for (int i = 0; i < prefixSum.Length; i++)
+            {
+                if (prefixSum[i] == 0) return 1;
+                if ((sumWithZero.ContainsKey(prefixSum[i]))) return 1;
+                else sumWithZero.Add(prefixSum[i], 1);
+            }
+            return 0;
+        }
+        //output
+        //var item = new List<int> { -1, 1 };
+        //var res = DSA_algorithm.SCALAR.Intermediate_DSA_2.Hashing_1.checkIfSubArrayWithSumZeroExist(item);
+        #endregion
     }
 }
