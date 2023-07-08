@@ -87,5 +87,67 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             return result;
         }
 
+        /*
+         Given an array A. You have some integers given in the array B.
+         For the i-th number, find the frequency of B[i] in the array A and return a list containing all the frequencies.
+
+        Problem Constraints
+        1 <= |A| <= 105
+        1 <= |B| <= 105
+        1 <= A[i] <= 105
+        1 <= B[i] <= 105
+
+        Example Input
+        Input 1:
+        A = [1, 2, 1, 1]
+        B = [1, 2]
+        Input 2:
+        A = [2, 5, 9, 2, 8]
+        B = [3, 2]
+        
+        
+        Example Output
+        Output 1:
+        [3, 1]
+        Output 2:
+        [0, 2]
+         */
+        public static List<int> getFrequencyOfB_ArrayElementsInA_Array(List<int> A, List<int> B)
+        {
+            Dictionary<int, int> frequencyHashMap = new Dictionary<int, int>();
+            List<int> result = new List<int>();
+
+            //step 1 : prepare hashmap of the array
+
+            for (int i = 0; i < A.Count; i++)
+            {
+                if (frequencyHashMap.ContainsKey(A[i]))
+                {
+                    frequencyHashMap[A[i]] = frequencyHashMap[A[i]] + 1;
+                }
+                else
+                {
+                    frequencyHashMap.Add(A[i], 1);
+                }
+            }
+            //step 2: loop throught the B array and check the exitance - if exist then assign the frequency and if not exist then assin 0
+
+            for (int i = 0; i < B.Count; i++)
+            {
+                if (frequencyHashMap.ContainsKey(B[i])) result.Add(frequencyHashMap[B[i]]);
+                else result.Add(0);
+            }
+
+            return result;
+        }
+        /*
+         * the output
+         * //List<int> A = new List<int> { 6 };
+        //List<int> B = new List<int> { 1, 3, 10, 4, 9 };
+
+        //List<int> A = new List<int> { 7, 6, 6, 3, 1, 5, 7 };
+        //List<int> B = new List<int> { 2, 1, 7, 5, 8 };
+        //var result= DSA_algorithm.SCALAR.Intermediate_DSA_2.Hashing_1.getFrequencyOfB_ArrayElementsInA_Array(A, B);
+          */
     }
 }
