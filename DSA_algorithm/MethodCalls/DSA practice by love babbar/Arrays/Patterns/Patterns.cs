@@ -227,5 +227,22 @@ namespace DSA_algorithm.MethodCalls.DSA_practice_by_love_babbar.Arrays.Patterns
                 Console.WriteLine();
             }
         }
+        //****
+        //***
+        //**
+        //*
+        public static void pattern11(int numberOfRows)
+        {
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+                for (int j = 1; j <= numberOfRows - i + 1; j++)
+                {
+
+                    Console.Write("*");
+
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
