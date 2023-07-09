@@ -185,7 +185,8 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
          */
         public static int checkIfSubArrayWithSumZeroExist(List<int> A)
         {
-            int[] prefixSum = new int[A.Count];
+            //int[] prefixSum = new int[A.Count];
+            long[] prefixSum = new long[A.Count];
             //step 1: create a prefix sum array 
             prefixSum[0] = A[0];
             for (int i = 1; i < A.Count; i++)
@@ -193,7 +194,8 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
                 prefixSum[i] = prefixSum[i - 1] + A[i];
             }
             //step 2: if the prefix array is having any 0 then we need to return 1 
-            Dictionary<int, int> sumWithZero = new Dictionary<int, int>();
+            //Dictionary<int, int> sumWithZero = new Dictionary<int, int>();
+            Dictionary<long, int> sumWithZero = new Dictionary<long, int>();
             for (int i = 0; i < prefixSum.Length; i++)
             {
                 if (prefixSum[i] == 0) return 1;
