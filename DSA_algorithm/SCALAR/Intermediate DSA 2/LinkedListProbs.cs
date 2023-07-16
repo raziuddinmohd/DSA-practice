@@ -58,6 +58,7 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             {
                 Console.WriteLine(curNode.val + " ");
                 curNode = curNode.next;
+                Console.WriteLine(" ");
             }
         }
         /*
