@@ -56,8 +56,8 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             ListNode curNode = A;
             while (curNode != null)
             {
-                Console.Write(curNode.val+" ");
-                curNode = curNode.next!=null? curNode.next:null;
+                Console.WriteLine(curNode.val + " ");
+                curNode = curNode.next;
             }
         }
         /*
@@ -102,13 +102,13 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             Output 2:
             1
          */
-        public static int SearchLL(ListNode A,int B)
+        public static int SearchLL(ListNode A, int B)
         {
             ListNode curNode = A;
             bool found = false;
             while (curNode != null)
             {
-                if(curNode.val==B)
+                if (curNode.val == B)
                 {
                     found = true;
                 }
@@ -116,6 +116,110 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
                 curNode = curNode.next;
             }
             return found ? 1 : 0;
+        }
+        /*
+         Q3. Insert in Linked List
+        Problem Description
+        You are given A which is the head of a linked list. Also given is the value B and position C. Complete the function that should insert a new node with the said value at the given position.
+        
+        Notes:
+        
+        In case the position is more than length of linked list, simply insert the new node at the tail only.
+        In case the pos is 0, simply insert the new node at head only.
+        Follow 0-based indexing for the node numbering.
+        
+        
+        Problem Constraints
+        1 <= size of linked list <= 105
+        
+        1 <= value of nodes <= 109
+        
+        1 <= B <= 109
+        
+        0 <= C <= 105
+        
+        
+        
+        Input Format
+        The first argument A is the head of a linked list.
+        
+        The second argument B is an integer which denotes the value of the new node
+        
+        The third argument C is an integer which denotes the position of the new node
+        
+        
+        
+        Output Format
+        Return the head of the linked list
+        
+        
+        Example Input
+        Input 1:
+        A = 1 -> 2
+        B = 3
+        C = 0
+        Input 2:
+        A = 1 -> 2
+        B = 3
+        C = 1
+        
+        
+        Example Output
+        Output 1:
+        3 -> 1 -> 2
+        Output 2:
+        1 -> 3 -> 2
+
+         */
+        public ListNode InsertAtPosition(ListNode A, int B, int C)
+        {
+            ListNode currNode = A;
+            int counter = 0;
+            ListNode newNode = new ListNode(B);
+            //insert at first position
+            if (C == 0)
+            {
+                newNode.next = currNode;
+                /*if inserted at 0th index then new node will be the head*/
+                return newNode;
+            }
+            bool inserted = false;
+            ListNode tempNode;
+            while (currNode != null)
+            {
+                if (counter == C - 1)
+                {
+                    tempNode = currNode.next;
+                    currNode.next = newNode;
+                    newNode.next = tempNode;
+                    inserted = true;
+
+                    /*
+                     * this code will not work(you can recall reference/address concept)
+                     * when we assign the currNode, it will store the address of the current node
+                     * when you change the next of the currNode then both i.e tempNode and currNode
+                     * next value will be same
+                     tempNode = currNode;
+                    currNode.next = newNode;
+                    newNode.next = tempNode.next;
+                    inserted = true;
+                     */
+                }
+                else if (currNode.next == null)
+                {
+                    currNode.next = newNode; 
+                    inserted = true;
+                }
+                else
+                {
+                    currNode = currNode.next;
+                    counter++;
+                }
+                if (inserted) break;
+
+            }
+
+            return A;
         }
     }
 }
