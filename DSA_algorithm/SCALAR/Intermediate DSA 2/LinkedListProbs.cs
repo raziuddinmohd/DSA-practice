@@ -1,5 +1,9 @@
-﻿using System;
+﻿using DSA_algorithm.LinkedList;
+using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -208,7 +212,7 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
                 }
                 else if (currNode.next == null)
                 {
-                    currNode.next = newNode; 
+                    currNode.next = newNode;
                     inserted = true;
                 }
                 else
@@ -221,6 +225,130 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             }
 
             return A;
+        }
+
+        //Q4.Delete in Linked List
+        //Problem Description
+        //You are given the head of a linked list A and an integer B.Delete the B-th node from the linked list.
+
+        //Note : Follow 0-based indexing for the node numbering.
+
+
+
+        //Problem Constraints
+        //1 <= size of linked list <= 105
+        //1 <= value of nodes <= 109
+        //0 <= B<size of linked list
+
+
+
+        //Input Format
+        //The first argument A is the head of a linked list.
+
+        //The second arguement B is an integer.
+
+
+
+        //Output Format
+        //Return the head of the linked list after deletion
+
+
+
+        //Example Input
+        //Input 1:
+        //A = 1 -> 2 -> 3
+        //B = 1
+        //Input 2:
+        //A = 4 -> 3 -> 2 -> 1
+        //B = 0
+
+
+        //Example Output
+        //Output 1:
+        //1 -> 3
+        //Output 2:
+        //3 -> 2 -> 1
+
+
+        //Example Explanation
+        //For Input 1:
+        //The linked list after deletion is 1 -> 3.
+        //For Input 2:
+        //The linked list after deletion is 3 -> 2 -> 1.
+        public ListNode DeleteAtPosition(ListNode A, int B)
+        {
+            if (B == 0)
+            {
+                return A.next;
+            }
+
+            ListNode currNode = A;
+            ListNode temp;
+            int counter = 0;
+            while (currNode != null)
+            {
+                if (counter == B - 1)
+                {
+                    //last node case
+                    //if (currNode.next.next == null)
+                    //{
+                    //    currNode.next = null;
+                    //    return A;
+                    //    //break;
+                    //}
+                    //if (currNode.next.next && currNode.next.next.next==null)
+                    //{
+                    //    //other than last node
+
+
+                    //}
+                    if (currNode != null && currNode.next != null && currNode.next.next != null)
+                    {
+                        currNode.next = currNode.next.next;
+                    }
+                    else
+                    {
+                        currNode.next = null;
+                    }
+                }
+                counter++;
+                currNode = currNode.next;
+            }
+            return A;
+        }
+
+        public int CompareLL(ListNode A, ListNode B)
+        {
+            ListNode firstLL = A;
+            ListNode secondLL = B;
+            int firstLL_length = 0;
+            int secondLL_length = 0;
+            while (firstLL.next != null)
+            {
+                firstLL = firstLL.next;
+                firstLL_length++;
+            }
+            while (secondLL.next != null)
+            {
+                secondLL = secondLL.next;
+                secondLL_length++;
+            }
+            if (firstLL_length != secondLL_length) return 0;
+            firstLL = A;
+            secondLL = B;
+            while (firstLL.next != null && secondLL.next != null)
+            {
+                if (firstLL.val == secondLL.val)
+                {
+                    firstLL = firstLL.next;
+                    secondLL = secondLL.next;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            return 1;
         }
     }
 }
