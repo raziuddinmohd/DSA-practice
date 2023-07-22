@@ -350,5 +350,40 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             }
             return 1;
         }
+        public static List<long> rangeSum(List<int> A, List<List<int>> B)
+        {
+            //List<int> pSum = new List<int>();
+            List<long> pSum = new List<long>(); //when we create sum of two maximum int numner it could be long 
+
+            List<long> resultArray = new List<long>();
+            pSum.Add(A[0]);
+            for (int i = 1; i < A.Count; i++)
+            {
+                pSum.Add(pSum[i - 1] + A[i]);
+            }
+            int queryindex = 0;
+            int leftHandIndex = -1;
+            int rightHandIndex = -1;
+            while (queryindex < B.Count)
+            {
+                leftHandIndex = B[queryindex][0];
+                rightHandIndex = B[queryindex][1];
+                if (leftHandIndex == 0)
+                {
+                    resultArray.Add(pSum[rightHandIndex]);
+                }
+                else
+                {
+                    resultArray.Add(pSum[rightHandIndex]- pSum[leftHandIndex-1]);
+                }
+                // }
+
+                //}
+
+                queryindex++;
+
+            }
+            return resultArray;
+        }
     }
 }
