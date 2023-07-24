@@ -374,7 +374,7 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
                 }
                 else
                 {
-                    resultArray.Add(pSum[rightHandIndex]- pSum[leftHandIndex-1]);
+                    resultArray.Add(pSum[rightHandIndex] - pSum[leftHandIndex - 1]);
                 }
                 // }
 
@@ -386,28 +386,5 @@ namespace DSA_algorithm.SCALAR.Intermediate_DSA_2
             return resultArray;
         }
     }
-    class Circle
-    {
-        // Define properties here
-
-        public int radius { get; set; }
-        public double pi = 3.14;
-        // Define constructor here
-        public Circle(int radius)
-        {
-            this.radius = radius;
-        }
-        public float perimeter()
-        {
-            return (float)(2 * pi * this.radius); // Complete the function
-
-        }
-
-        public float area()
-        {
-            return (float)(pi * this.radius * this.radius);
-            // Complete the function
-
-        }
-    };
+  
 }
